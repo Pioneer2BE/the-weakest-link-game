@@ -11,13 +11,13 @@ const StartPage = () => {
     const pageTransition = useContext(PageTransContext)
 
     let history = useHistory()
-    const goToContestants = () => history.push('/contestants')
+    const goToMain = () => history.push('/main')
 
     return (
-        <motion.section className="column is-vcentered is-centered start-page" initial= "out" animate= "in" exit= "out" variants={pageVariants} transition={pageTransition}>
-            
-            <button className="button is-warning is-large" onClick={goToContestants}>Start</button>
-            
+        <motion.section id="start-page" className="columns is-vcentered is-centered" initial= "out" animate= "in" exit= "out" variants={pageVariants} transition={pageTransition}>
+            <div className="column">
+                <button className="button is-warning is-large" onClick={goToMain}>Start</button>
+            </div>
         </motion.section>
     )
 }

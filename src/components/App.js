@@ -1,52 +1,64 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { AnimatePresence } from 'framer-motion'
 import {Switch, Route, useLocation} from "react-router-dom"
 
 import '../assets/css/App.css'
 
+import {pageTransition, pageVariants, avatarObject} from '../modules/variables'
+
 import WelcomePage from "../pages/WelcomePage"
 import StartPage from '../pages/StartPage'
-import ContestantPage from '../pages/ContestantPage'
+import MainPage from '../pages/MainPage'
 
+
+import AvatarsContext from '../context/AvatarsContext'
 import PageVariContext from '../context/PageVariContext'
 import PageTransContext from '../context/PageTransContext'
+import SelctAvtrPgContext from '../context/SelctAvtrPgContext'
+import StageDspContext from '../context/StageDspContext'
+import StartBtnContext from '../context/StartBtnContext'
+import SelectedAvatarContext from '../context/SelectedAvatarContext'
 
 function App() {
 
   let location = useLocation();
 
-  const pageTransition = 
-  {
-    transition: "linear",
-    duration: 0.5
-  }
+  const [avatars, setAvatars] = useState(avatarObject);
+  const [startBtn, setStartBtn] = useState({disabled: true});
+  const [selectedAvatar, setSelectedAvatar] = useState({
+    id: 5,
+    name: "James Jackson",
+    image: "avatar5.png",
+    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo similique assumenda eius distinctio ipsum laboriosam laborum consequuntur minus aperiam provident. Expedita eligendi dignissimos itaque suscipit porro optio omnis blanditiis eveniet.",
+    selected: false
+  });
+  const [dspAvtPg, setDspAvtPg] = useState({display: true});
+  const [dspStgPg, setDspStgPg] = useState({display: false});
 
-  const pageVariants = 
-  {
-    in:{
-      opacity: 1,
-      y: 0
-    },
-    out:{
-      opacity: 0,
-      y: "-100vh"
-    }
-  }
 
   return (
 
-    //initial={false}
-    <PageVariContext.Provider value = {pageVariants}>
-    <PageTransContext.Provider value={pageTransition}>
+    <PageVariContext.Provider value= {pageVariants}>
+    <PageTransContext.Provider value= {pageTransition}>
+    <AvatarsContext.Provider value= {{avatars, setAvatars}}>
+    <StartBtnContext.Provider value= {{startBtn, setStartBtn}}>
+    <SelectedAvatarContext.Provider value= {{selectedAvatar, setSelectedAvatar}}>
+    <SelctAvtrPgContext.Provider value = {{dspAvtPg, setDspAvtPg}}>
+    <StageDspContext.Provider value = {{dspStgPg, setDspStgPg}}>
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
           <Route exact path="/" component={WelcomePage} />
           <Route exact path="/start" component={StartPage} />
-          <Route exact path="/contestants" component={ContestantPage} />
+          <Route exact path="/main" component={MainPage} />
         </Switch>
       </AnimatePresence>
-      </PageTransContext.Provider>
-      </PageVariContext.Provider>
+    </StageDspContext.Provider>
+    </SelctAvtrPgContext.Provider>
+    </SelectedAvatarContext.Provider>
+    </StartBtnContext.Provider>
+    </AvatarsContext.Provider>
+    </PageTransContext.Provider>
+    </PageVariContext.Provider>
   );
 }
 
