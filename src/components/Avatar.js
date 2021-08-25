@@ -4,7 +4,7 @@ import AvatarsContext from '../context/AvatarsContext'
 import StartBtnContext from '../context/StartBtnContext'
 
 
-const Avatar = ({id, name, image, bio, selected}) => {
+const Avatar = ({id, name, image, selected}) => {
 
     const profilePic = require(`../assets/img/avatars/${image}`).default
 
@@ -34,14 +34,14 @@ const Avatar = ({id, name, image, bio, selected}) => {
 
         setStartBtn({disabled: false});
 
-        console.log(copiedAvatars);
+        console.log(selected);
 
     }
-
+    
     return (
         <div className={selected ? "column selected":"column"} id={id}  onClick={enableStart}>
             <div>
-                <figure className="image is-1by1">
+                <figure className="image">
                     <img src={profilePic} alt="" />
                 </figure>
                 <div className="card">

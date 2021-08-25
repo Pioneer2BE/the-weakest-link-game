@@ -62,4 +62,108 @@ const avatarObject = [
 
 ];
 
-export {pageTransition, pageVariants, avatarObject}
+const defaultMoneyTree = [{
+  id:1,
+  value:0,
+  selected:true
+}]
+
+const roundObjects =
+[
+    {
+        id:1,
+        time:120,
+        money:
+        [
+          {
+            id:9,
+            value:500000,
+            selected:false
+          },
+          {
+            id:8,
+            value:250000,
+            selected:false
+          },
+          {
+            id:7,
+            value:125000,
+            selected:false
+          },
+          {
+            id:6,
+            value:75000,
+            selected:false
+          },
+          {
+            id:5,
+            value:50000,
+            selected:false
+          },
+          {
+            id:4,
+            value:10000,
+            selected:false
+          },
+          {
+            id:3,
+            value:5000,
+            selected:false
+          },
+          {
+            id:2,
+            value:1000,
+            selected:false
+          },
+          {
+            id:1,
+            value:0,
+            selected:true
+          }
+        ]
+    },
+    {
+        id:2,
+        time:90,
+        money:
+        [
+          {
+            id:1,
+            value:500000,
+            selected:false
+          },
+          {
+            id:2,
+            value:125000,
+            selected:false
+          },
+          {
+            id:3,
+            value:75000,
+            selected:false
+          },
+          {
+            id:4,
+            value:10000,
+            selected:false
+          },
+          {
+            id:5,
+            value:1000,
+            selected:false
+          },
+          {
+            id:6,
+            value:0,
+            selected:true
+          }
+        ]
+    },
+    {
+        id:3,
+        time:120,
+        money:0
+    }
+]
+
+export {pageTransition, pageVariants, avatarObject, defaultMoneyTree, roundObjects}

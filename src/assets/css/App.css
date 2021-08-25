@@ -1,6 +1,25 @@
-.hide
+#contestent
 {
-  display: none;
+    width: 200px;
+    height: 200px;
+    padding-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo
+{
+    width: 200px;
+    height: 143px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#life-line
+{
+    margin-top: 87%;
 }
 
 #start-page
@@ -14,7 +33,7 @@
     background-size: cover;
 }
 
-#select-avatar, #game-stage
+#game-stage, #round-modal, #select-avatar
 {
     position: fixed; /* Stay in place */
     right: 0;
@@ -28,6 +47,11 @@
     overflow: hidden;
 }
 
+#round-modal
+{
+    z-index: 1;
+}
+
 video
 {
     object-fit:cover;
@@ -36,4 +60,131 @@ video
     position:fixed;
     top: 0;
     left: 0;
+}
+
+.answer-panel
+{
+    height: 50px;
+}
+
+.answer-panel:hover
+{
+    background-color:#4344a9;
+}
+
+.bank-btn
+{
+    background-color: #f6e4a4;
+    display: block;
+    min-width: 100%;
+
+}
+
+.base-timer 
+{
+    position: relative;
+    height: 220px;
+    width: 220px;
+}
+  
+/* Removes SVG styling that would hide the time label */
+.base-timer__circle
+{
+    fill: none;
+    stroke: none;
+}
+  
+  /* The SVG path that displays the timer's progress */
+.base-timer__path-elapsed 
+{
+    stroke-width: 7px;
+    stroke: grey;
+}
+
+.base-timer__label 
+{
+    position: absolute;
+    
+    /* Size should match the parent container */
+    width: 220px;
+    height: 220px;
+    
+    /* Keep the label aligned to the top */
+    top: 0;
+    
+    /* Create a flexible box that centers content vertically and horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    /* Sort of an arbitrary number; adjust to your liking */
+    font-size: 48px;
+    color: #f6e4a4;
+}
+
+.hide
+{
+  display: none;
+}
+
+.lifeline
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.money-tile
+{
+    background-color: #1d2369;
+    border: solid #f6e4a4;
+    border-radius: 100px / 50px;
+    color: #f6e4a4;
+    height: 50px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.money-tile > span
+{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.name-plaque
+{
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f6e4a4;
+}
+
+.panel
+{
+    border: solid #f6e4a4;
+    border-radius: 5px;
+    background-color:#1d2369;
+    color: #f6e4a4;
+    font-weight: bold;
+}
+
+.question-panel
+{
+    height: 100px;
+}
+
+.selected
+{
+    border: solid #f6e4a4;
+}
+
+
+
+#life-line > h3
+{
+    font-variant: small-caps;
+    font-weight: bolder;
 }

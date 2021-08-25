@@ -14,9 +14,11 @@ const StartPage = () => {
     const goToMain = () => history.push('/main')
 
     return (
-        <motion.section id="start-page" className="columns is-vcentered is-centered" initial= "out" animate= "in" exit= "out" variants={pageVariants} transition={pageTransition}>
-            <div className="column">
-                <button className="button is-warning is-large" onClick={goToMain}>Start</button>
+        <motion.section id="start-page" initial= "out" animate= "in" exit= "out" variants={pageVariants} transition={pageTransition}>
+            <div className="columns is-vcentered is-centered" style={{height:"100vh"}}>
+                <div className="column is-1">
+                    <button className="button is-warning is-large" onClick={goToMain}>Start</button>
+                </div>
             </div>
         </motion.section>
     )
